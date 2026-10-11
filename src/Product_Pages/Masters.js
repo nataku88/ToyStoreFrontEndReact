@@ -14,7 +14,7 @@ export const Masters =() =>{
     
     const getMasters = async ()=> {
         try{
-            const response = axios.get("http://localhost:5047/api/Masters/GetMasters")
+            const response = axios.get("http://localhost:8080/api/Masters/GetMasters")
 
             setMasters((await response).data);
            

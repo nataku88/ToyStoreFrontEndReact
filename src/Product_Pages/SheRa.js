@@ -14,7 +14,7 @@ export const SheRa =() =>{
 
     const getFigures = async ()=> {
         try{
-            const response = axios.get("http://localhost:5047/api/Princess/GetPrincess")
+            const response = axios.get("http://localhost:8080/api/Princess/GetPrincess")
 
             setFigures((await response).data);
                

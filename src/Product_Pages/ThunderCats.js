@@ -13,7 +13,7 @@ export const ThunderCats =() =>{
 
     const getFigures = async ()=> {
         try{
-            const response = axios.get("http://localhost:5047/api/ThunderCats/GetThunderCats")
+            const response = axios.get("http://localhost:8080/api/ThunderCats/GetThunderCats")
 
             setFigures((await response).data);
                
