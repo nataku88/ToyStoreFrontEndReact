@@ -1,0 +1,36 @@
+
+
+name: Deploy React App to Ubuntu
+
+on:
+  workflow_run:
+    workflows:
+      - "Build and Push React FrontEnd to Docker Hub"
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: self-hosted
+
+    steps:
+      - name: Pull latest React image
+        run: docker pull vandread44/react-store-app:latest
+
+      - name: Remove old React container if it exists
+        run: |
+          docker stop react-store || true
+          docker rm react-store || true
+
+      - name: Start updated React container
+        run: |
+          docker run -d \
+            --restart unless-stopped \
+            --name react-store \
+            -p 3000:80 \
+            vandread44/react-store-app:latest
+
+
