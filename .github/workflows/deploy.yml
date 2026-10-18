@@ -1,11 +1,19 @@
 
+
 name: Deploy React App to Ubuntu
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "Build and Push React FrontEnd to Docker Hub"
+    types:
+      - completed
+    branches:
+      - main
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: self-hosted
 
     steps:
@@ -24,4 +32,5 @@ jobs:
             --name react-store \
             -p 3000:80 \
             vandread44/react-store-app:latest
+
 
