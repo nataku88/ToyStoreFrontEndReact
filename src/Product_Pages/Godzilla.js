@@ -15,7 +15,7 @@ export const Godzilla =() =>{
 
     const getFigures = async ()=> {
         try{
-            const response = axios.get("http://localhost:8080/api/Godzilla/GetGodzilla")
+            const response = axios.get("/api/Godzilla/GetGodzilla")
 
             setFigures((await response).data);
                

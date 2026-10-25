@@ -17,7 +17,7 @@ export const Transformers = () =>{
     
     const getTrans = async ()=> {
         try{
-            const response = axios.get("http://localhost:8080/api/Transformer/GetTransformers")
+            const response = axios.get("/api/Transformer/GetTransformers")
 
             setTransformers((await response).data);
                
