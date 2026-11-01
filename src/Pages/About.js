@@ -6,6 +6,8 @@ export const About=()=>{
             </header>
             <div className="HomeCenter">
                 <h2>Something Something Something Darkside...Something Something the Force</h2>
+
+                <h3>You will be turned!!</h3>
             </div>
         </div>
     )
