@@ -31,4 +31,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/react-store-app:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/react-store-app:latest
+            ${{ secrets.DOCKER_USERNAME }}/react-store-app:${{ github.sha }}
